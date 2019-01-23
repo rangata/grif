@@ -1,0 +1,40 @@
+{
+    "fields": [
+        {
+            "name": "documentType",
+            "type": "select",
+            "options":{
+                "ppp": "Приемо-предавателен протокол",
+                "contract":"Договор",
+                "aneks": "Анекс"
+            }
+        },
+        {
+            "name": "customer_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "documentDate",
+            "type": "date"
+        },
+        {
+            "name": "documentPath",
+            "type": "string"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column":"customer_id",
+            "references":"id",
+            "on":"customers",
+            "onDelete":"cascade"
+        }
+    ],
+    "relationship": [
+        {
+            "name":"customer",
+            "type":"hasMany",
+            "class":"App\\Customer"
+        }
+    ]
+}

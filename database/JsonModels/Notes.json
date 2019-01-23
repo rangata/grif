@@ -1,0 +1,29 @@
+{
+    "fields": [
+        {
+            "name":"note_text",
+            "type":"text"
+        },
+        {
+            "name":"good_id",
+            "type": "integer#unsigned"
+        }
+
+
+    ],
+    "foreign_keys": [
+        {
+            "column": "good_id",
+            "references": "id",
+            "on": "goods",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "good",
+            "type": "belongsTo",
+            "class": "App\\Good"
+        }
+    ]
+}
